@@ -36,4 +36,4 @@ if __name__ == '__main__':
   ('KFC', None),
 ]
 
-print(reconstruct_trip(tickets))
+# print(reconstruct_trip(tickets))

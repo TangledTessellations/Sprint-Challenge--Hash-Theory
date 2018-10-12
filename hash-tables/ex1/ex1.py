@@ -1,26 +1,17 @@
 def get_indices_of_item_weights(weights, limit):
   weight_dict = {}
-  value = None
+  lower_index = None
 
-  for weight in weights:
-    weight_dict[weight] = limit - weight
-
-  for weight in weights:
+  for index, weight in enumerate(weights):
     try:
-      value = weight_dict[limit - weight]
+      lower_index = weight_dict[limit - weight]
+      print("Lower_index", lower_index)
+      if lower_index is not None:
+        return (index, lower_index)
     except KeyError:
-      pass
+      weight_dict[weight] = index
   
-  if value != None:
-
-    if value == weight_dict[value]:
-      indices = [i for i, x in enumerate(weights) if x == value]
-      print("indices: ", indices)
-      return (indices[-1], indices[-2])
-    else:
-      return (weights.index(value), weights.index(weight_dict[value])) if weights.index(value) > weights.index(weight_dict[value]) else (weights.index(weight_dict[value]), weights.index(value))
-
-  else:
+  if lower_index is None:
     return ()
   
 
