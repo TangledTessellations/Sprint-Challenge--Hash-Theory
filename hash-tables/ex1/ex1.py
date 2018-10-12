@@ -24,8 +24,8 @@ if __name__ == '__main__':
 
   print(get_indices_of_item_weights(vals, limit))
 
-  vals = [1,2,4,5,5]
-  limit = 30
+  vals = [1,10,4,5,5, 7]
+  limit = 17
 
   print(get_indices_of_item_weights(vals, limit))
 
