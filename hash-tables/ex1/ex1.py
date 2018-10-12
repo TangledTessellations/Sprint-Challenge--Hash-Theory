@@ -12,15 +12,22 @@ def get_indices_of_item_weights(weights, limit):
       pass
   
   if value != None:
-    return (value, weight_dict[value]) if value < weight_dict[value] else (weight_dict[value], value)
+
+    if value == weight_dict[value]:
+      indices = [i for i, x in enumerate(weights) if x == value]
+      print("indices: ", indices)
+      return (indices[-1], indices[-2])
+    else:
+      return (weights.index(value), weights.index(weight_dict[value])) if weights.index(value) > weights.index(weight_dict[value]) else (weights.index(weight_dict[value]), weights.index(value))
+
   else:
     return ()
   
 
 if __name__ == '__main__':
   # You can write code here to test your implementation using the Python repl
-  vals = [4, 6, 10, 15, 16]
-  limit = 21
+  vals = [4, 4]
+  limit = 8
 
   print(get_indices_of_item_weights(vals, limit))
 
